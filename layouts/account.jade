@@ -1,0 +1,63 @@
+doctype 5
+html(ng-app="drywall-angular")
+  head
+    block head
+      title #{title}
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/layouts/core.min.css?#{cacheBreaker}')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js')
+    block neck
+  body(ng-controller="StaticController", ng-cloak)
+    div.navbar.navbar-default.navbar-fixed-top
+      div.container
+        div.navbar-header
+          a.navbar-brand(href='/account/')
+            img.navbar-logo(src='/media/logo-symbol-64x64.png')
+            span.navbar-brand-label #{projectName}
+          button.navbar-toggle.collapsed(data-toggle='collapse', data-target='.my-navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        div.navbar-collapse.my-navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li: a(href='/account/') My Account
+            li: a(href='/account/settings/') Settings
+          ul.nav.navbar-nav.pull-right
+            li: a(href='/logout/')
+              i.fa.fa-user
+              |  Sign Out
+
+    div.page
+      div.container
+        div.menu
+           div.reveal-animation(ng-include='\'/angular/partials/menu\'')
+        div.content(class="ng-view reveal-animation")
+    
+
+    div.ajax-spinner
+      img(src='/media/ajax-pulse.gif')
+
+    div.loadingContainer
+      div.loading
+
+    //if lte IE 9
+    script(src='/layouts/ie-sucks.min.js?#{cacheBreaker}')
+    script(src='/layouts/core.min.js?#{cacheBreaker}')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-animate.js')
+
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/jquery.noty.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/themes/default.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/layouts/inline.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/layouts/bottom.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/layouts/topCenter.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/layouts/top.js')
+    script(src='//cdn.jsdelivr.net/noty/2.1.0/layouts/bottomCenter.js')
+
+    script(src='/angular/js/app.js')
+    script(src='/angular/js/services.js')
+    script(src='/angular/js/controllers.js')
+    script(src='/angular/js/filters.js')
+    script(src='/angular/js/directives.js')
+    
+    block feet
