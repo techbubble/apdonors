@@ -1,7 +1,7 @@
 'use strict';
 
 //dependencies
-var config = require('./config'),
+var Config = require('./config'),
     express = require('express'),
     mongoStore = require('connect-mongo')(express),
     http = require('http'),
@@ -9,6 +9,7 @@ var config = require('./config'),
     passport = require('passport'),
     mongoose = require('mongoose');
 
+var config = new Config();
 //create express app
 var app = express();
 
